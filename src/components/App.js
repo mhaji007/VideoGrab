@@ -1,16 +1,17 @@
 import React from 'react';
 import SearchBar from './SearchBar';
-import youtube from '../apis/youtube';
+import youtube, {baseParams} from '../apis/youtube';
 
 class App extends React.Component{
-    onTermSubmit = (term) => {
+    onTermSubmit = (term) => {  
         youtube.get('/search', {
-            params: {
-                q: term
+            params : {
+                ...baseParams,
+                q : term
             }
         });
 
-    };
+    }
 
     render(){
         return (
@@ -24,3 +25,5 @@ class App extends React.Component{
 }
 
 export default App;
+
+
